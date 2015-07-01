@@ -28,6 +28,21 @@
     border-bottom: 1px solid #ccc;
 }
 
+.list > .card.large
+{
+    position: relative;
+
+    display: inline-block;
+    float: left;
+    overflow: hidden;
+
+    width: 12.7cm;
+    height: 7.6cm;
+    margin: 10px;
+
+    border-bottom: 1px solid #ccc;
+}
+
 .list > .card .card-action
 {
     position: absolute;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="postit">
+<html ng-app="postit" ng-controller="postitController">
 <head lang="fr">
     <meta charset="UTF-8">
     <title>Imprimer sur Post-it</title>
@@ -9,8 +9,12 @@
     <link type="text/css" rel="stylesheet" href="../bower_components/materialize/dist/css/materialize.min.css"/>
     <link type="text/css" rel="stylesheet" href="style.css"/>
     <!-- endbuild -->
+
     <!-- build:css css/print.css -->
-    <link type="text/css" rel="stylesheet" href="print.css" media="print"/>
+    <link type="text/css" rel="stylesheet" href="print.css" media="print" ng-if="!postItLarge"/>
+    <!-- endbuild -->
+    <!-- build:css css/printLarge.css -->
+    <link type="text/css" rel="stylesheet" href="large.css" media="print" ng-if="postItLarge"/>
     <!-- endbuild -->
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -29,7 +33,7 @@
 <body>
 <h2 class="noPrint center-align">Imprimer sur des post-it</h2>
 
-<div ng-controller="postitController" class="container">
+<div  class="container">
     <div class="noPrint row">
         <div class="col s7">
             <div class="card">
@@ -49,6 +53,14 @@
                         <button class="waves-effect waves-light btn" type="submit" ng-show="editing!= -1 ">Enregistrer
                             <i
                                     class="material-icons right">done</i></button>
+                        <div class="switch right" style="display: inline">
+                            <label>
+                                Post-it large
+                                <input type="checkbox" ng-model="postItLarge">
+                                <span class="lever"></span>
+
+                            </label>
+                        </div>
                     </form>
                 </div>
                 <div class="card-reveal">
@@ -88,7 +100,8 @@
 
 
                     <ol class="left-align">
-                        <li><a href="Imprimer_sur_post-it.pdf" target="_blank">Imprimez la feuille support</a></li>
+                        <li  ng-if="!postItLarge"><a href="Imprimer_sur_post-it.pdf" target="_blank">Imprimez la feuille support</a></li>
+                        <li  ng-if="postItLarge"><a href="Imprimer_sur_post-it_large.pdf" target="_blank">Imprimez la feuille support pour post-it large</a></li>
                         <li> Collez les post-it dans les cases</li>
                         <li> Saisissez votre contenu</li>
                         <li> Imprimez !</li>
@@ -162,7 +175,7 @@
     <div class="list">
         <div ng-repeat-start="(key, todo) in todos" ng-class-odd="'leftCol'" ng-class-even="'rightCol'"
              ng-click="edit(key)" ng-dblclick="duplicate(key)"
-             class="card hoverable" ng-class="{'lighten-2 teal': editing==key}">
+             class="card hoverable" ng-class="{'lighten-2 teal': editing==key, 'large': postItLarge}" >
             <div class="card-content">
                 <div class="card-title center-align">{{todo.title}}
                     <i class="material-icons actionIcon right noPrint" ng-click="delete(key)">delete</i>
@@ -176,7 +189,7 @@
             </div>
 
         </div>
-        <div ng-repeat-end class="pageBreak" ng-if="(key+1)%6 == 0"></div>
+        <div ng-repeat-end class="pageBreak" ng-if="(key+1)%nbByPage == 0"></div>
     </div>
 
 </div>

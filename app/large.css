@@ -1,50 +1,53 @@
+
 @page
 {
     margin: 0;
     padding: 0;
 
     border: none!important;
+    size: A4 landscape;
 
-    size: A4;
 }
 
 html,
-body
+body.large
 {
     position: relative;
 
-    width: 210mm;
-    height: 297mm;
+    height: 210mm!important;
+    width: 297mm!important;
     margin: 0;
     padding: 0;
-}
-.container
-{
-    width: 100%!important;
+
 }
 .list
 {
     width: 100%!important;
-    margin-top: 1.5cm;
+    margin-top: 2cm;
+    position: absolute;
 
     border-color: transparent!important;
 }
 
+.container
+{
+    width: 100%!important;
+    margin: 0px 0px!important;
+}
 
-.card
+.card.large
 {
     position: relative;
 
     display: inline-block;
     overflow: hidden;
 
-    width: 6.6cm!important;
+    width: 11.7cm!important;
     height: 6.6cm!important;
     margin-top: 0px!important;
-    /*margin-left: 1px!important;*/
-    /*margin-right: 1px!important;*/
-    margin-bottom: 2.5cm!important;
-
+    margin-left: 0px!important;
+    margin-right: 0px!important;
+    margin-bottom: 3.7cm!important;
 
     transition: none;
 
@@ -59,16 +62,16 @@ body
     padding: 0 !important;
 }
 
-.card.leftCol
+.card.leftCol.large
 {
-    left: 2.25cm;
+    left: 2cm;
 }
 
-.card.rightCol
+.card.rightCol.large
 {
-    right: 2.25cm;
+    right: 2cm;
 
-    float: right;
+    float: right!important;
 }
 
 .noPrint
@@ -78,7 +81,7 @@ body
 
 .pageBreak
 {
-    height: 1.5cm;
+    height: 2cm;
 
     page-break-before: always;
 }

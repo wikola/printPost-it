@@ -3,12 +3,27 @@
  */
 angular.module('postit', ['ngStorage'])
     .controller('postitController', function ($scope, $sessionStorage) {
+        $scope.postItLarge = false;
+        $scope.nbByPage = 6;
         $scope.todos = [];
         if (angular.isDefined($sessionStorage.todos)) {
             $scope.todos = $sessionStorage.todos;
         }
+        if (angular.isDefined($sessionStorage.postItLarge)) {
+            $scope.postItLarge = $sessionStorage.postItLarge;
+        }
 
         $scope.nbPage = 0;
+
+        $scope.$watch('postItLarge', function (newVal, oldVal) {
+            if (newVal) {
+                $scope.nbByPage = 4;
+            }
+            else {
+                $scope.nbByPage = 6;
+            }
+            $sessionStorage.postItLarge = newVal;
+        });
 
         $scope.$watch('todos.length', function (newVal, oldVal) {
             $scope.nbPage = Math.ceil(newVal / 6);
@@ -38,7 +53,7 @@ angular.module('postit', ['ngStorage'])
                 var lignes = csv.split(/(\r\n|\n|\r)/gi);
                 angular.forEach(lignes, function (ligne) {
                     var res = ligne.match(/(\r\n|\n|\r)/gi);
-                    if(res != null ){
+                    if (res != null) {
                         return;
                     }
                     var items = ligne.split(";");
@@ -53,7 +68,7 @@ angular.module('postit', ['ngStorage'])
                             todo.id = items[3];
                         }
                     }
-                    else{
+                    else {
                         todo.content = items[0];
                     }
                     $scope.todos.push(todo);
