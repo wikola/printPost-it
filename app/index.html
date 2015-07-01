@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html ng-app="postit">
+<head lang="fr">
+    <meta charset="UTF-8">
+    <title>Post-it</title>
+
+    <!-- build:css css/compile.css -->
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="../bower_components/materialize/dist/css/materialize.min.css"/>
+    <link type="text/css" rel="stylesheet" href="style.css"/>
+    <!-- endbuild -->
+    <!-- build:css css/print.css -->
+    <link type="text/css" rel="stylesheet" href="print.css" media="print"/>
+    <!-- endbuild -->
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- build:js js/compile.js -->
+    <script src="../bower_components/angularjs/angular.min.js"></script>
+    <script src="../bower_components/ngstorage/ngStorage.min.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/materialize/dist/js/materialize.min.js"></script>
+    <script src="postit.js"></script>
+    <!-- endbuild -->
+
+</head>
+<body>
+<h2 class="noPrint center-align">Imprimer sur des post-it</h2>
+
+<div ng-controller="postitController" class="container">
+    <div class="noPrint row">
+        <div class="col s7">
+            <div class="card">
+                <div class="card-content">
+                     <span class="card-title  grey-text text-darken-4"><span
+                             ng-hide="editing != -1 ">Ajouter un</span><span
+                             ng-show="editing != -1 ">Modifier le</span> post-it<i
+                             class="material-icons right activator actionIcon">toc</i></span>
+
+                    <form ng-submit="addTodo()">
+                        <input type="text" ng-model="us.title" size="30" placeholder="Rubrique">
+                        <textarea class="materialize-textarea" ng-model="us.content" placeholder="Détails"></textarea>
+                        <input type="text" ng-model="us.point" size="5" placeholder="Point">
+                        <input type="text" ng-model="us.id" size="6" placeholder="ID">
+                        <button class="waves-effect waves-light btn" type="submit" ng-hide="editing != -1 ">Ajouter <i
+                                class="material-icons right">library_add</i></button>
+                        <button class="waves-effect waves-light btn" type="submit" ng-show="editing!= -1 ">Enregistrer
+                            <i
+                                    class="material-icons right">done</i></button>
+                    </form>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Charger depuis un contenu CSV<i class="material-icons right">close</i></span>
+
+                    <form ng-submit="addFromCSV()">
+                        <div class="row">
+                            <div class="col s7 center-align">Titre;Détail du post-it;Point;Id<br>Titre;Détail du post-it;Point;Id</div>
+                            <div class="col s1 center-align">OU</div>
+                            <div class="col s4 center-align">Détail du post-it<br>Détail du post-it</div>
+                        </div>
+                        <div class="row center-align">
+                        <button class="waves-effect waves-light btn" type="submit" ng-hide="editing != -1 ">Ajouter <i
+                                class="material-icons right">library_add</i></button>
+                            </div>
+
+                        <textarea class="materialize-textarea" ng-model="csv" placeholder="CSV" required></textarea>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="clo s5 center-align">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="images/baniere.PNG">
+                </div>
+                <div class="card-content">
+
+                    <span class="card-title activator grey-text text-darken-4">Comment faire ?<i
+                            class="material-icons right">live_help</i></span>
+
+
+                    <ol class="left-align">
+                        <li><a href="Imprimer_sur_post-it.pdf" target="_blank">Imprimez la feuille support</a></li>
+                        <li> Collez les post-it dans les cases</li>
+                        <li> Saisissez votre contenu</li>
+                        <li> Imprimez !</li>
+                    </ol>
+                    <p>
+                        <ng-pluralize count="nbPage"
+                                      when="{'0': '',
+                     'one': ' Vous aurez besoin d\'une feuille avec des post-it',
+                     'other': 'Vous aurez besoin de {} feuilles avec des post-it'}">
+                        </ng-pluralize>
+                    </p>
+
+                    <div class="action row">
+                        <div class="col s6">
+                            <button class="waves-effect waves-light btn red" ng-click="deleteAll()">Vider <i
+                                    class="material-icons right">delete</i></button>
+                        </div>
+                        <div class="col s6">
+                            <button class="btn waves-effect waves-light" ng-show="todos.length > 0" ng-click="print()">
+                                Imprimer<i class="material-icons right">print</i></button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="card-reveal ">
+                    <span class="card-title grey-text text-darken-4">Les petits plus<i class="material-icons right">close</i></span>
+
+                    <div class="left-align">
+                        <ul class="">
+                            <li>Cliquez sur un post-it pour le modifier</li>
+                            <li>Double cliquez sur un post-it pour le dupliquer</li>
+                            <li>Cliquez sur <i class="material-icons ">toc</i> pour créer des post-it du CSV</li>
+                        </ul>
+                        <p>
+                            Vous pouvez aussi récupérer le <a href="Imprimer_sur_post-it.pub" target="_blank">template Publisher</a>.
+                        </p>
+                        <p>
+                            <a href="Imprimer_sur_post-it_Valtech.pdf" target="_blank">Template spécial pour Valtech (Imprimante Xerox WorkCentre 7845)</a>.
+                        </p>
+                        <p>
+                            Réalisé par Nicolas Boé
+                            avec <a href="http://materializecss.com/">materializecss</a> et
+                            <a href="http://angularjs.org/">AngularJS</a>.
+                        </p>
+                        <div class="center-align">
+                            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                <input type="hidden" name="cmd" value="_s-xclick">
+                                <input type="hidden" name="hosted_button_id" value="SA3BPK99VTANA">
+                                <input type="image" src="https://www.paypalobjects.com/fr_FR/FR/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - la solution de paiement en ligne la plus simple et la plus sécurisée !">
+                                <img alt="" border="0" src="https://www.paypalobjects.com/fr_FR/i/scr/pixel.gif" width="1" height="1">
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+    <div class="list">
+        <div ng-repeat-start="(key, todo) in todos" ng-class-odd="'leftCol'" ng-class-even="'rightCol'"
+             ng-click="edit(key)" ng-dblclick="duplicate(key)"
+             class="card hoverable" ng-class="{'lighten-2 teal': editing==key}">
+            <div class="card-content">
+                <div class="card-title center-align">{{todo.title}}
+                    <i class="material-icons actionIcon right noPrint" ng-click="delete(key)">delete</i>
+                </div>
+
+                <p>{{todo.content}}</p>
+            </div>
+            <div class="card-action">
+                <span>{{todo.id}}</span>
+                <span class="right">{{todo.point}}</span>
+            </div>
+
+        </div>
+        <div ng-repeat-end class="pageBreak" ng-if="(key+1)%6 == 0"></div>
+    </div>
+
+</div>
+</body>
+</html>

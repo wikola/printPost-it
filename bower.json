@@ -1,0 +1,15 @@
+{
+  "name": "post-it",
+  "version": "0.0.0",
+  "authors": [
+    "Nicolas Boé <nicolas.boe@valtech.fr>"
+  ],
+  "description": "Print on post-it",
+  "main": "index.html",
+  "license": "MIT",
+  "dependencies": {
+    "angularjs": "~1.4.1",
+    "ngstorage": "~0.3.6",
+    "materialize": "~0.97.0"
+  }
+}

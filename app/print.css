@@ -1,0 +1,60 @@
+@page {
+    size: A4;
+    margin: 0;
+    padding: 0;
+    border: none!important;
+}
+
+html, body {
+    width: 210mm;
+    height: 297mm;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+.container{
+    width: 100%!important;
+}
+.list {
+    margin-top: 1.5cm;
+    border-color: transparent!important;
+    width: 100%!important;
+}
+
+
+.card {
+    position: relative;
+    height: 6.6cm!important;
+    width: 6.6cm!important;
+    border: transparent !important;
+    display: inline-block;
+    overflow: hidden;
+    margin-bottom: 2.5cm!important;
+    box-shadow: none !important;
+    border-bottom: none !important;
+    transition: none;
+}
+
+.card-action, .card-content {
+    padding: 0px !important;
+}
+
+.card.leftCol {
+    left: 2.25cm;
+}
+
+.card.rightCol {
+    right: 2.25cm;
+    float: right;
+}
+
+.noPrint {
+    display: none!important;
+}
+
+.pageBreak {
+    page-break-before: always;
+    height: 1.5cm;
+}
+
+

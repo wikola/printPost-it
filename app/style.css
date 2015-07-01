@@ -1,0 +1,67 @@
+.list
+{
+    overflow: hidden;
+    /*width:100%;*/
+
+    margin-bottom: 20px;
+
+    border-top: 1px solid #ccc;
+}
+
+.card-title
+{
+    color: black !important;
+}
+
+.list > .card
+{
+    position: relative;
+
+    display: inline-block;
+    float: left;
+    overflow: hidden;
+
+    width: 7.6cm;
+    height: 7.6cm;
+    margin: 10px;
+
+    border-bottom: 1px solid #ccc;
+}
+
+.list > .card .card-action
+{
+    position: absolute;
+    bottom: 0;
+
+    width: 100%;
+}
+
+.id
+{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.point
+{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.red{
+    background-color: #f44336!important;
+}
+
+.action{
+    padding-top: 10px;
+}
+
+.actionIcon{
+    cursor: pointer;
+}
+
+ul > li{
+ list-style-type:square!important;
+}
