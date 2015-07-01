@@ -50,18 +50,22 @@
     bottom: 0;
 }
 
-.red{
+.red
+{
     background-color: #f44336!important;
 }
 
-.action{
+.action
+{
     padding-top: 10px;
 }
 
-.actionIcon{
+.actionIcon
+{
     cursor: pointer;
 }
 
-ul > li{
- list-style-type:square!important;
+ul > li
+{
+    list-style-type: square!important;
 }

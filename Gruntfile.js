@@ -48,6 +48,16 @@ module.exports = function (grunt) {
                         dest: '<%= config.dist %>'
                     }
                 ]
+            },
+            images: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: '<%= config.app %>',
+                        src: 'images/**',
+                        dest: '<%= config.dist %>'
+                    }
+                ]
             }
         },
 

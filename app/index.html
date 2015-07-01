@@ -2,8 +2,8 @@
 <html ng-app="postit">
 <head lang="fr">
     <meta charset="UTF-8">
-    <title>Post-it</title>
-
+    <title>Imprimer sur Post-it</title>
+    <link rel="icon" type="image/png" href="images/favicon.ico" />
     <!-- build:css css/compile.css -->
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="../bower_components/materialize/dist/css/materialize.min.css"/>
@@ -52,18 +52,22 @@
                     </form>
                 </div>
                 <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">Charger depuis un contenu CSV<i class="material-icons right">close</i></span>
+                    <span class="card-title grey-text text-darken-4">Charger depuis un contenu CSV<i
+                            class="material-icons right">close</i></span>
 
                     <form ng-submit="addFromCSV()">
                         <div class="row">
-                            <div class="col s7 center-align">Titre;Détail du post-it;Point;Id<br>Titre;Détail du post-it;Point;Id</div>
+                            <div class="col s7 center-align">Titre;Détail du post-it;Point;Id<br>Titre;Détail du
+                                post-it;Point;Id
+                            </div>
                             <div class="col s1 center-align">OU</div>
                             <div class="col s4 center-align">Détail du post-it<br>Détail du post-it</div>
                         </div>
                         <div class="row center-align">
-                        <button class="waves-effect waves-light btn" type="submit" ng-hide="editing != -1 ">Ajouter <i
-                                class="material-icons right">library_add</i></button>
-                            </div>
+                            <button class="waves-effect waves-light btn" type="submit" ng-hide="editing != -1 ">Ajouter
+                                <i
+                                        class="material-icons right">library_add</i></button>
+                        </div>
 
                         <textarea class="materialize-textarea" ng-model="csv" placeholder="CSV" required></textarea>
 
@@ -120,22 +124,30 @@
                             <li>Cliquez sur <i class="material-icons ">toc</i> pour créer des post-it du CSV</li>
                         </ul>
                         <p>
-                            Vous pouvez aussi récupérer le <a href="Imprimer_sur_post-it.pub" target="_blank">template Publisher</a>.
+                            Vous pouvez aussi récupérer le <a href="Imprimer_sur_post-it.pub" target="_blank">template
+                            Publisher</a>.
                         </p>
+
                         <p>
-                            <a href="Imprimer_sur_post-it_Valtech.pdf" target="_blank">Template spécial pour Valtech (Imprimante Xerox WorkCentre 7845)</a>.
+                            <a href="Imprimer_sur_post-it_Valtech.pdf" target="_blank">Template spécial pour Valtech
+                                (Imprimante Xerox WorkCentre 7845)</a>.
                         </p>
+
                         <p>
                             Réalisé par Nicolas Boé
                             avec <a href="http://materializecss.com/">materializecss</a> et
                             <a href="http://angularjs.org/">AngularJS</a>.
                         </p>
+
                         <div class="center-align">
                             <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                                 <input type="hidden" name="cmd" value="_s-xclick">
                                 <input type="hidden" name="hosted_button_id" value="SA3BPK99VTANA">
-                                <input type="image" src="https://www.paypalobjects.com/fr_FR/FR/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - la solution de paiement en ligne la plus simple et la plus sécurisée !">
-                                <img alt="" border="0" src="https://www.paypalobjects.com/fr_FR/i/scr/pixel.gif" width="1" height="1">
+                                <input type="image" src="https://www.paypalobjects.com/fr_FR/FR/i/btn/btn_donate_LG.gif"
+                                       border="0" name="submit"
+                                       alt="PayPal - la solution de paiement en ligne la plus simple et la plus sécurisée !">
+                                <img alt="" border="0" src="https://www.paypalobjects.com/fr_FR/i/scr/pixel.gif"
+                                     width="1" height="1">
                             </form>
 
                         </div>

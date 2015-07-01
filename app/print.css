@@ -1,60 +1,82 @@
-@page {
-    size: A4;
+@page
+{
     margin: 0;
     padding: 0;
+
     border: none!important;
+
+    size: A4;
 }
 
-html, body {
+html,
+body
+{
+    position: relative;
+
     width: 210mm;
     height: 297mm;
     margin: 0;
     padding: 0;
-    position: relative;
 }
-.container{
+.container
+{
     width: 100%!important;
 }
-.list {
+.list
+{
+    width: 100%!important;
     margin-top: 1.5cm;
+
     border-color: transparent!important;
-    width: 100%!important;
 }
 
 
-.card {
+.card
+{
     position: relative;
-    height: 6.6cm!important;
-    width: 6.6cm!important;
-    border: transparent !important;
+
     display: inline-block;
     overflow: hidden;
+
+    width: 6.6cm!important;
+    height: 6.6cm!important;
     margin-bottom: 2.5cm!important;
-    box-shadow: none !important;
-    border-bottom: none !important;
+
     transition: none;
+
+    border: transparent !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
 }
 
-.card-action, .card-content {
-    padding: 0px !important;
+.card-action,
+.card-content
+{
+    padding: 0 !important;
 }
 
-.card.leftCol {
+.card.leftCol
+{
     left: 2.25cm;
 }
 
-.card.rightCol {
+.card.rightCol
+{
     right: 2.25cm;
+
     float: right;
 }
 
-.noPrint {
+.noPrint
+{
     display: none!important;
 }
 
-.pageBreak {
-    page-break-before: always;
+.pageBreak
+{
     height: 1.5cm;
+
+    page-break-before: always;
 }
 
 
