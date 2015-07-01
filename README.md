@@ -8,15 +8,23 @@ Utilisez directement le service sur http://post-it.nicolas-boe.fr
 - Imprimez le contenu
 
 # Comment développer
+Vous aurez besoin de node, bower et grunt
 
 - Cloner le projet
-npm
-
+- Puis dans un terminal au niveau du repertoire:
+```
+npm install bower install
+```
+- Lancer app/index.html
+- Pour minifier les sources:
+```
+grunt
+```
 
 # Reste à faire
 
 - [ ] Optimisation
   - [ ] Retirer jquery et materialize.js
-  - [ ] Faire une function pour ajouter des todos;
+  - [ ] Faire une fonction pour ajouter des todos;
   - [ ] Adsens
 - [ ] Utiliser différentes tailles de post-it
