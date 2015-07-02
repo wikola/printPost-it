@@ -26,5 +26,4 @@ grunt
 - [ ] Optimisation
   - [ ] Retirer jquery et materialize.js
   - [ ] Faire une fonction pour ajouter des todos;
-  - [ ] Adsens
-- [ ] Utiliser différentes tailles de post-it
+- [X] Utiliser différentes tailles de post-it
