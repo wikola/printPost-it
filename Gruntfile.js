@@ -29,6 +29,16 @@ module.exports = function (grunt) {
                     }
                 ]
             },
+            pub: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: '<%= config.app %>',
+                        src: '*.pub',
+                        dest: '<%= config.dist %>'
+                    }
+                ]
+            },
             pdf: {
                 files: [
                     {
@@ -75,7 +85,15 @@ module.exports = function (grunt) {
             }
         },
         cssmin: {
-
+            target: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= config.app %>/css',
+                    src: ['print.css', 'large.css'],
+                    dest: '<%= config.dist %>/css',
+                    ext: '.css'
+                }]
+            }
         },
         concat:{
 

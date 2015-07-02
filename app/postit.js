@@ -104,15 +104,12 @@ angular.module('postit', ['ngStorage'])
             $scope.editing = key + 1;
         };
 
-        //$scope.duplicateUs = function () {
-        //    $scope.todos.push(angular.copy($scope.us));
-        //    $sessionStorage.todos = $scope.todos;
-        //    $scope.edit($scope.todos.length);
-        //};
 
         $scope.print = function () {
             window.print();
-        }
+        };
+
+
 
 
     });

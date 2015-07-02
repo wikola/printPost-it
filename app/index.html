@@ -3,19 +3,16 @@
 <head lang="fr">
     <meta charset="UTF-8">
     <title>Imprimer sur Post-it</title>
-    <link rel="icon" type="image/png" href="images/favicon.ico" />
+    <link rel="icon" type="image/png" href="images/favicon.ico"/>
     <!-- build:css css/compile.css -->
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="../bower_components/materialize/dist/css/materialize.min.css"/>
-    <link type="text/css" rel="stylesheet" href="style.css"/>
+    <link type="text/css" rel="stylesheet" href="css/style.css"/>
     <!-- endbuild -->
 
-    <!-- build:css css/print.css -->
-    <link type="text/css" rel="stylesheet" href="print.css" media="print" ng-if="!postItLarge"/>
-    <!-- endbuild -->
-    <!-- build:css css/printLarge.css -->
-    <link type="text/css" rel="stylesheet" href="large.css" media="print" ng-if="postItLarge"/>
-    <!-- endbuild -->
+
+    <link type="text/css" rel="stylesheet" href="css/print.css" media="print" ng-if="!postItLarge"/>
+    <link type="text/css" rel="stylesheet" href="css/large.css" media="print" ng-if="postItLarge"/>
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -33,7 +30,7 @@
 <body>
 <h2 class="noPrint center-align">Imprimer sur des post-it</h2>
 
-<div  class="container">
+<div class="container">
     <div class="noPrint row">
         <div class="col s7">
             <div class="card">
@@ -77,8 +74,7 @@
                         </div>
                         <div class="row center-align">
                             <button class="waves-effect waves-light btn" type="submit" ng-hide="editing != -1 ">Ajouter
-                                <i
-                                        class="material-icons right">library_add</i></button>
+                                <i class="material-icons right">library_add</i></button>
                         </div>
 
                         <textarea class="materialize-textarea" ng-model="csv" placeholder="CSV" required></textarea>
@@ -100,8 +96,10 @@
 
 
                     <ol class="left-align">
-                        <li  ng-if="!postItLarge"><a href="Imprimer_sur_post-it.pdf" target="_blank">Imprimez la feuille support</a></li>
-                        <li  ng-if="postItLarge"><a href="Imprimer_sur_post-it_large.pdf" target="_blank">Imprimez la feuille support pour post-it large</a></li>
+                        <li ng-if="!postItLarge"><a href="Imprimer_sur_post-it.pdf" target="_blank">Imprimez la feuille
+                            support</a></li>
+                        <li ng-if="postItLarge"><a href="Imprimer_sur_post-it_large.pdf" target="_blank">Imprimez la
+                            feuille support pour post-it large</a></li>
                         <li> Collez les post-it dans les cases</li>
                         <li> Saisissez votre contenu</li>
                         <li> Imprimez !</li>
@@ -132,9 +130,10 @@
 
                     <div class="left-align">
                         <ul class="">
-                            <li>Cliquez sur un post-it pour le modifier</li>
+                            <li>Sélectionnez sur un post-it pour le modifier</li>
                             <li>Double cliquez sur un post-it pour le dupliquer</li>
-                            <li>Cliquez sur <i class="material-icons ">toc</i> pour créer des post-it du CSV</li>
+                            <li>Cliquez sur <i class="material-icons ">toc</i> pour créer des post-it à partir d'un CSV
+                            </li>
                         </ul>
                         <p>
                             Vous pouvez aussi récupérer le <a href="Imprimer_sur_post-it.pub" target="_blank">template
@@ -142,9 +141,16 @@
                         </p>
 
                         <p>
+                            Vous pouvez aussi récupérer le <a href="Imprimer_sur_post-it_large.pub" target="_blank">template
+                            Publisher au format large
+                        </a>.
+                        </p>
+
+                        <p>
                             <a href="Imprimer_sur_post-it_Valtech.pdf" target="_blank">Template spécial pour Valtech
                                 (Imprimante Xerox WorkCentre 7845)</a>.
                         </p>
+
 
                         <p>
                             Réalisé par Nicolas Boé
@@ -152,17 +158,32 @@
                             <a href="http://angularjs.org/">AngularJS</a>.
                         </p>
 
-                        <div class="center-align">
-                            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                                <input type="hidden" name="cmd" value="_s-xclick">
-                                <input type="hidden" name="hosted_button_id" value="SA3BPK99VTANA">
-                                <input type="image" src="https://www.paypalobjects.com/fr_FR/FR/i/btn/btn_donate_LG.gif"
-                                       border="0" name="submit"
-                                       alt="PayPal - la solution de paiement en ligne la plus simple et la plus sécurisée !">
-                                <img alt="" border="0" src="https://www.paypalobjects.com/fr_FR/i/scr/pixel.gif"
-                                     width="1" height="1">
-                            </form>
+                        <div class="row">
+                            <div class="col s4 center-align">
+                                <!-- Place this tag where you want the button to render. -->
+                                <a class="github-button" href="https://github.com/wikola/printPost-it" data-style="mega"
+                                   data-count-href="/wikola/printPost-it/watchers"
+                                   data-count-api="/repos/wikola/printPost-it#subscribers_count"
+                                   data-count-aria-label="# watchers on GitHub"
+                                   aria-label="Watch wikola/printPost-it on GitHub">Watch</a></div>
+                            <div class="col s4 center-align">
+                                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                    <input type="hidden" name="cmd" value="_s-xclick">
+                                    <input type="hidden" name="hosted_button_id" value="SA3BPK99VTANA">
+                                    <input type="image"
+                                           src="https://www.paypalobjects.com/fr_FR/FR/i/btn/btn_donate_LG.gif"
+                                           border="0" name="submit"
+                                           alt="PayPal - la solution de paiement en ligne la plus simple et la plus sécurisée !">
+                                    <img alt="" border="0" src="https://www.paypalobjects.com/fr_FR/i/scr/pixel.gif"
+                                         width="1" height="1">
+                                </form>
 
+                            </div>
+                            <div class="col s4 center-align">
+                                <!-- Place this tag where you want the button to render. -->
+                                <a class="github-button"
+                                   href="https://github.com/wikola/printPost-it/archive/master.zip" data-style="mega"
+                                   aria-label="Download wikola/printPost-it on GitHub">Download</a></div>
                         </div>
                     </div>
                 </div>
@@ -175,7 +196,7 @@
     <div class="list">
         <div ng-repeat-start="(key, todo) in todos" ng-class-odd="'leftCol'" ng-class-even="'rightCol'"
              ng-click="edit(key)" ng-dblclick="duplicate(key)"
-             class="card hoverable" ng-class="{'lighten-2 teal': editing==key, 'large': postItLarge}" >
+             class="card hoverable" ng-class="{'lighten-2 teal': editing==key, 'large': postItLarge}">
             <div class="card-content">
                 <div class="card-title center-align">{{todo.title}}
                     <i class="material-icons actionIcon right noPrint" ng-click="delete(key)">delete</i>
@@ -193,5 +214,7 @@
     </div>
 
 </div>
+<!-- Place this tag right after the last button or just before your close body tag. -->
+<script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
 </body>
 </html>
